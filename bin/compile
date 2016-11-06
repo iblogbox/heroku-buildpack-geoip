@@ -6,9 +6,9 @@ indent() {
 
 BUILD_DIR="$1"
 SOURCE_DIR="$(dirname $0)/../compiled"
-TARGET_DIR="$BUILD_DIR/vendor/"
+TARGET_DIR="$BUILD_DIR/vendor/geoip"
 
 echo "-----> Copying files to $TARGET_DIR"
 
 mkdir -p "$TARGET_DIR"
-cp "$SOURCE_DIR/geoip" "$TARGET_DIR"
+cp "$SOURCE_DIR/geoip/*" "$TARGET_DIR"
