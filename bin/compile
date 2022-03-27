@@ -15,6 +15,7 @@ cp -r "$SOURCE_DIR/geoip" "$TARGET_DIR"
 
 if [ -f "$BUILD_DIR/geoip.txt" ]; then
 	value=`cat "$BUILD_DIR/geoip.txt"`	
+	echo "$value" | xargs echo -n
 	if [ "$value" == "nocopygeodata" ]; then
 		rm -rf "$TARGET_DIR/geoip/GeoLiteCity3.dat"
 		echo "geoip.txt --> $value (ok)"
