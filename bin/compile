@@ -12,3 +12,11 @@ echo "-----> Copying files to $TARGET_DIR"
 
 mkdir -p "$TARGET_DIR"
 cp -r "$SOURCE_DIR/geoip" "$TARGET_DIR"
+
+if [ -f "$BUILD_DIR/geoip.txt" ]; then
+	value=`cat "$BUILD_DIR/geoip.txt"`	
+	if [ "$value" == "nocopygeodata" ]; then
+		rm -rf "$TARGET_DIR/geoip/GeoLiteCity3.dat"
+		echo "geoip.txt --> $value (ok)"
+	fi
+fi
